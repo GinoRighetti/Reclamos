@@ -1,0 +1,23 @@
+
+    <div class="col-md-4" *ngFor="let user of usuarios">
+        <div class="container-fluid">
+        <div class="card text-center">
+                <div class="card-header d-flex justify-content-between align-items-center">
+                    <div class="">
+                        <i class="fas fa-user fa-lg mr-2"></i>
+                        {{user.Nombre}} {{user.Apellido}}
+                    </div>
+                    <button class="btn btn-danger btn-sm" (click)="borrarUsuario(user.Id)">
+                        <i class="far fa-trash-alt"></i>
+                    </button>                         
+                </div>
+                <div class="card-body">
+                    <p> Nombre de usuario</p>
+                    <h4 class="card-title">{{user.Usuario}}</h4>
+                    <p>Creado el</p>
+                    <h6 class="card-text">{{user.Alta}}</h6>
+                </div>
+        </div>
+    </div> 
+</div>
+
