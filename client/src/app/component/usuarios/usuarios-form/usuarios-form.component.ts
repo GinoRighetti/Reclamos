@@ -34,7 +34,7 @@ export class UsuariosFormComponent implements OnInit {
     Email: "",
     Usuario: "",
     Clave: "",
-    Imagen: "",
+    Imagen: "../../../../assets/img-usuario/1.png",
     Alta: new Date,
     Baja: new Date,
     Condicion: 1
