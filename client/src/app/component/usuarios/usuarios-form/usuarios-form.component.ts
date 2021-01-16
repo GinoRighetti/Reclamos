@@ -54,4 +54,24 @@ export class UsuariosFormComponent implements OnInit {
       err => console.error(err)
     )
   }
+
+  imgsiguiente(){
+    if (this.imagenSeleccionada != 9){
+      this.imagenSeleccionada = this.imagenSeleccionada + 1;
+    }else{
+      this.imagenSeleccionada = 0;
+    } 
+    this.user.Imagen= this.imagenes[this.imagenSeleccionada].texto;
+    console.log(this.imagenSeleccionada, this.user.Imagen)
+  }
+
+  imganterior(){
+    if (this.imagenSeleccionada != 0){
+      this.imagenSeleccionada = this.imagenSeleccionada - 1;
+    }else{
+      this.imagenSeleccionada = 9;
+    } 
+    this.user.Imagen= this.imagenes[this.imagenSeleccionada].texto;
+    console.log(this.imagenSeleccionada, this.user.Imagen)
+  }
 }
