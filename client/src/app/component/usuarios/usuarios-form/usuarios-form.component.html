@@ -37,18 +37,22 @@
         </div>
     </div>
     <div class="col-md-6  ">
-        <div class="card card-header text-center" >
-            <h4>Vista previa</h4>
-        </div>
+        <div class="card text-center">
+            <div class="card card-header text-center" >
+                <h4>Vista previa</h4>
+            </div>
             <div class="card card-body text-center">
-                <img [src]="user.Imagen" class="card-img-top">
+                <div class="container d-center" style="width:5cm; height: 5cm">
+                    <img [src]="user.Imagen" class="card-img-top text-center">
+                </div>
+                <br>
                 <h2> <h6>Nombre: </h6> {{user.Nombre}} {{user.Apellido}} </h2>
                 <h2> <h6>Email: </h6> {{user.Email}} </h2>
                 <h2> <h6>Nombre de usuario: </h6> {{user.Usuario}} </h2>
                 <h2> <h6>Fecha de creacíon: </h6> {{user.Alta | date: 'dd/MM/yyyy'}} </h2>
                 <h2> <h6>Tipo de usuario: </h6> {{user.Condicion == 1 ? 'Administrador' : 'Usuario'}} </h2>
-                
-            </div>
+            </div>    
+        </div>
     </div>
 
 
