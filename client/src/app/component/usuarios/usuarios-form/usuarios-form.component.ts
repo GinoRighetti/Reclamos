@@ -1,4 +1,5 @@
 import { Component, HostBinding, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { Usuario } from "../../../models/usuarios";
 
 import { UsuariosService } from "../../../services/usuarios.service";
@@ -37,7 +38,7 @@ export class UsuariosFormComponent implements OnInit {
     Imagen: "../../../../assets/img-usuario/1.png",
     Alta: new Date,
     Baja: new Date,
-    Condicion: 1
+    Condicion: 0
   };
 
   constructor(private usuariosService: UsuariosService) { }
@@ -49,10 +50,20 @@ export class UsuariosFormComponent implements OnInit {
     delete this.user.Baja;
     delete this.user.Alta;
     delete this.user.id;
-    this.usuariosService.createUsuario(this.user).subscribe(
-      res => {console.log(res)},
-      err => console.error(err)
-    )
+    this.user.Nombre = (this.user.Nombre).toUpperCase();
+    this.user.Apellido = (this.user.Apellido).toUpperCase();
+    if (this.user.Nombre=='' || this.user.Apellido=='' || this.user.Usuario=='' || this.user.Clave=='')
+    {
+      alert("Debe completar todos los campos requeridos");
+    }
+    else{
+      this.usuariosService.createUsuario(this.user).subscribe(
+        res => {console.log(res)},
+        err => console.error(err)
+      )
+      
+    }
+    
   }
 
   imgsiguiente(){
@@ -62,7 +73,6 @@ export class UsuariosFormComponent implements OnInit {
       this.imagenSeleccionada = 0;
     } 
     this.user.Imagen= this.imagenes[this.imagenSeleccionada].texto;
-    console.log(this.imagenSeleccionada, this.user.Imagen)
   }
 
   imganterior(){
@@ -72,6 +82,5 @@ export class UsuariosFormComponent implements OnInit {
       this.imagenSeleccionada = 9;
     } 
     this.user.Imagen= this.imagenes[this.imagenSeleccionada].texto;
-    console.log(this.imagenSeleccionada, this.user.Imagen)
   }
 }
