@@ -71,9 +71,7 @@ export class UsuariosFormComponent implements OnInit {
                 this.router.navigate(['/usuarios'])},
         err => console.error(err)
       )
-      
     }
-    
   }
 
   actualizarUsuario(){

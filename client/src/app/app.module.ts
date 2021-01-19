@@ -10,6 +10,8 @@ import { NavegationComponent } from './component/navegation/navegation.component
 import { UsuariosService } from './services/usuarios.service';
 import { UsuariosListComponent } from './component/usuarios/usuarios-list/usuarios-list.component';
 import { UsuariosFormComponent } from './component/usuarios/usuarios-form/usuarios-form.component';
+import { NavegationHeaderComponent } from './component/navegation-header/navegation-header.component';
+import { UsuariosMenuComponent } from './component/usuarios/usuarios-menu/usuarios-menu.component';
 
 
 @NgModule({
@@ -18,6 +20,8 @@ import { UsuariosFormComponent } from './component/usuarios/usuarios-form/usuari
     NavegationComponent,
     UsuariosListComponent,
     UsuariosFormComponent,
+    NavegationHeaderComponent,
+    UsuariosMenuComponent,
 
   ],
   imports: [

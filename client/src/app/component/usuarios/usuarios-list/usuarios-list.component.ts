@@ -26,10 +26,13 @@ export class UsuariosListComponent implements OnInit {
   }
 
   borrarUsuario(id: string){
-    this.usuariosService.deleteUsuario(id).subscribe(
-      res => console.log(res),
-      err => console.error(err)
-    )
-    this.actualizar();
+      var mensaje = confirm("¿Realmente desea eliminar este usuario?");
+      if (mensaje) {
+        this.usuariosService.deleteUsuario(id).subscribe(
+          res => console.log(res),
+          err => console.error(err)
+        )
+        this.actualizar();
+      }
   }
 }
