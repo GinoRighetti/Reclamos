@@ -32,7 +32,7 @@
                         <option value="0">Usuario</option> 
                         <option value="1">Administrador</option> 
                     </select>
-                    <button class="btn btn-success btn-block mt-5" (click)="guardarUsuario()">
+                    <button class="btn btn-success btn-block mt-5" (click)="editar ? actualizarUsuario() : guardarUsuario()">
                         {{user.id == 0 ? 'Guardar nuevo usuario' : 'Actualizar usuario existente'}}
                     </button> 
                 </form>

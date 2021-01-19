@@ -1,5 +1,5 @@
 import { Component, HostBinding, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Usuario } from "../../../models/usuarios";
 
 import { UsuariosService } from "../../../services/usuarios.service";
@@ -28,7 +28,7 @@ export class UsuariosFormComponent implements OnInit {
     {id: 9, texto: '../../../../assets/img-usuario/10.png'},
   ]
 
-  user: Usuario ={
+  user: any ={
     id: 0,
     Nombre: "",
     Apellido: "",
@@ -41,9 +41,18 @@ export class UsuariosFormComponent implements OnInit {
     Condicion: 0
   };
 
-  constructor(private usuariosService: UsuariosService) { }
+  editar: boolean = false;
+
+  constructor(private usuariosService: UsuariosService, private activatedRoute: ActivatedRoute, private router: Router) { }
 
   ngOnInit(): void {
+    const params = this.activatedRoute.snapshot.params;
+    if (params.id){
+      this.usuariosService.getUsuario(params.id).subscribe(
+        res => {this.user = res; this.editar = true},
+        err => console.error(err)
+      )
+    }
   }
 
   guardarUsuario(){
@@ -58,12 +67,23 @@ export class UsuariosFormComponent implements OnInit {
     }
     else{
       this.usuariosService.createUsuario(this.user).subscribe(
-        res => {console.log(res)},
+        res => {console.log(res), 
+                this.router.navigate(['/usuarios'])},
         err => console.error(err)
       )
       
     }
     
+  }
+
+  actualizarUsuario(){
+    delete this.user.Baja;
+    delete this.user.Alta;
+    this.usuariosService.updateUsuario(this.user.Id, this.user).subscribe(
+      res => {console.log(res), 
+        this.router.navigate(['/usuarios'])},
+      err => console.error(err)
+    )
   }
 
   imgsiguiente(){
