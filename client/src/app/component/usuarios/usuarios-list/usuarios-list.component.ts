@@ -28,5 +28,7 @@ export class UsuariosListComponent implements OnInit {
     )
     this.ngOnInit();
   }
-  
+  modificarUsuario(id: string){
+    console.log(id)
+  }
 }
