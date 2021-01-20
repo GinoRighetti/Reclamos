@@ -1,0 +1,1 @@
+Componente dedicado a la visualizacion de la informacion de las agencias. No se prevee la posibilidad de modificacion debido a que se cuenta con un software desarrollado a tal fin. 

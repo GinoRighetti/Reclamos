@@ -7,9 +7,11 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 
 import { UsuariosService } from './services/usuarios.service';
+import { AgenciasService } from './services/agencias.service'
 import { UsuariosListComponent } from './component/usuarios/usuarios-list/usuarios-list.component';
 import { UsuariosFormComponent } from './component/usuarios/usuarios-form/usuarios-form.component';
 import { NavegationHeaderComponent } from './component/navegation-header/navegation-header.component';
+import { AgenciasListComponent } from './component/agencias/agencias-list/agencias-list.component';
 
 
 
@@ -19,6 +21,7 @@ import { NavegationHeaderComponent } from './component/navegation-header/navegat
     UsuariosListComponent,
     UsuariosFormComponent,
     NavegationHeaderComponent,
+    AgenciasListComponent,
   ],
   imports: [
     BrowserModule,
@@ -27,7 +30,8 @@ import { NavegationHeaderComponent } from './component/navegation-header/navegat
     FormsModule,
   ],
   providers: [
-  UsuariosService
+  UsuariosService,
+  AgenciasService
   ],
   bootstrap: [AppComponent]
 })
