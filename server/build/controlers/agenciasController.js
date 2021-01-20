@@ -17,14 +17,14 @@ const database_1 = __importDefault(require("../routes/database"));
 class AgenciasController {
     list(req, res) {
         return __awaiter(this, void 0, void 0, function* () {
-            const agencias = yield database_1.default.query('SELECT * FROM Agencias');
+            const agencias = yield database_1.default.query('SELECT * FROM agencias');
             res.json(agencias);
         });
     }
     getOne(req, res) {
         return __awaiter(this, void 0, void 0, function* () {
             const { id } = req.params;
-            const agencias = yield database_1.default.query('SELECT * FROM Agencias WHERE Id = ?', [id]);
+            const agencias = yield database_1.default.query('SELECT * FROM agencias WHERE Id = ?', [id]);
             console.log(agencias);
             if (agencias.length > 0) {
                 return res.json(agencias[0]);
