@@ -31,7 +31,7 @@ import { AgenciasListComponent } from './component/agencias/agencias-list/agenci
   ],
   providers: [
   UsuariosService,
-  AgenciasService
+  AgenciasService,
   ],
   bootstrap: [AppComponent]
 })

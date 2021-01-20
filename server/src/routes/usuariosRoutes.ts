@@ -1,5 +1,4 @@
 import { Router } from 'express';
-import { config } from 'process';
 
 import { usuarioController } from '../controlers/usuariosController';
 
