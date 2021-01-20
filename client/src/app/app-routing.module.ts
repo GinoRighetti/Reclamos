@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { UsuariosFormComponent } from './component/usuarios/usuarios-form/usuarios-form.component';
 import { UsuariosListComponent } from './component/usuarios/usuarios-list/usuarios-list.component';
+import { AgenciasListComponent } from './component/agencias/agencias-list/agencias-list.component';
 
 const routes: Routes = [
   {
@@ -20,6 +21,10 @@ const routes: Routes = [
   {
     path: 'usuarios/editar/:id',
     component: UsuariosFormComponent
+  },
+  {
+    path: 'agencias',
+    component: AgenciasListComponent 
   }
 ];
 

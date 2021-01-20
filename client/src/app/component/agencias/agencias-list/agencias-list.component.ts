@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, HostBinding, OnInit } from '@angular/core';
+import { AgenciasService } from '../../../services/agencias.service';
 
 @Component({
   selector: 'app-agencias-list',
@@ -7,9 +8,20 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AgenciasListComponent implements OnInit {
 
-  constructor() { }
+  @HostBinding('class') classes = 'row';
+
+  agencias: any = [];
+
+  constructor( private agenciasService: AgenciasService) { }
 
   ngOnInit(): void {
+    this.actualizar()
   }
 
+  actualizar(){
+    this.agenciasService.getAgencias().subscribe(
+      res => console.log(res),
+      err => console.error(err)
+    );
+  }
 }

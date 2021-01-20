@@ -10,11 +10,11 @@ export class AgenciasService {
   API_URI = 'http://localhost:3000/agencias';
   constructor(private http: HttpClient) { }
 
-  getUsuarios(){
+  getAgencias(){
     return this.http.get(`${this.API_URI}`);
   }
 
-  getUsuario(id: string) {
+  getAgencia(id: string) {
     return this.http.get(`${this.API_URI}/${id}`);
   }
 }
