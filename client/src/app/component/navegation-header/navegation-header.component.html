@@ -8,6 +8,12 @@
       <ul class="navbar-nav mt-2 mt-lg-0 ml-auto">
         <li class="nav-item">
           <a class="nav-link" routerLink="/usuarios"><i class="fas fa-users"></i> Usuarios</a>
+          <div class="dropdown">
+            <button id="my-dropdown" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Text</button>
+            <div class="dropdown-menu" aria-labelledby="my-dropdown">
+              <a class="dropdown-item active" href="#">Text</a>
+            </div>
+          </div>
         </li>
         <li class="nav-item">
           <a class="nav-link" routerLink="/agencias"><i class="fas fa-store-alt"></i> Agencias</a>
@@ -17,6 +23,12 @@
         </li>
         <li class="nav-item">
             <a class="nav-link" routerLink="/reclamos"><i class="fas fa-headset"></i> Reclamos</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/usuarios"><i class="fas fa-users"></i> Usuarios</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/usuarios/nuevo"><i class="fas fa-user-plus"></i> Nuevo usuario</a>
         </li>
       </ul>
     </div>
