@@ -1,4 +1,5 @@
 import { Component, HostBinding, OnInit } from '@angular/core';
+import { Agencia } from 'src/app/models/agencias';
 import { AgenciasService } from '../../../services/agencias.service';
 
 @Component({
@@ -11,6 +12,7 @@ export class AgenciasListComponent implements OnInit {
   @HostBinding('class') classes = 'row';
 
   agencias: any = [];
+  seleccionada: any = [];
 
   constructor( private agenciasService: AgenciasService) { }
 
@@ -20,8 +22,15 @@ export class AgenciasListComponent implements OnInit {
 
   actualizar(){
     this.agenciasService.getAgencias().subscribe(
-      res => console.log(res),
+      res => this.agencias = res,
       err => console.error(err)
     );
+  }
+
+  seleccion(id: string){
+    this.agenciasService.getAgencia(id).subscribe(
+      res=> this.seleccionada = (res),
+      err => console.error(err)
+    )
   }
 }

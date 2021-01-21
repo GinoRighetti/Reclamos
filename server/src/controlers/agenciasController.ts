@@ -5,7 +5,7 @@ import pool from '../routes/database';
 class AgenciasController{
 
     public async list (req: Request, res: Response) {
-        const agencias = await pool.query('SELECT * FROM agencias');
+        const agencias = await pool.query('SELECT * FROM agencias WHERE Baja <=> null');
         res.json(agencias);
     }
 

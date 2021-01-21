@@ -7,7 +7,7 @@ import { AgenciasListComponent } from './component/agencias/agencias-list/agenci
 const routes: Routes = [
   {
     path: '',
-    redirectTo: '/menu',
+    redirectTo: '/',
     pathMatch: 'full'
   },
   {

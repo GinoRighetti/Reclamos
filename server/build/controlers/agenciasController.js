@@ -17,7 +17,7 @@ const database_1 = __importDefault(require("../routes/database"));
 class AgenciasController {
     list(req, res) {
         return __awaiter(this, void 0, void 0, function* () {
-            const agencias = yield database_1.default.query('SELECT * FROM agencias');
+            const agencias = yield database_1.default.query('SELECT * FROM agencias WHERE Baja <=> null');
             res.json(agencias);
         });
     }
