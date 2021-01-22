@@ -3,14 +3,14 @@
         <thead>
             <tr>
             <th scope="col">Agencia</th>
-            <th scope="col">Titular</th>
+            <th scope="col">Titular <input type="text" class="form-control" name="filterTitular" placeholder="Buscar..." [(ngModel)]="filterTitular"> </th>
             <th scope="col">Telefono</th>
             <th scope="col">Dirección</th>
             <th scope="col">Localidad</th>
             </tr>
         </thead>
         <tbody>
-                <tr *ngFor="let agencia of agencias">
+                <tr *ngFor="let agencia of agencias | filter:filterTitular">
                     <th scope="row">{{agencia.Agencia}}</th>
                     <td>{{agencia.Titular}}</td>
                     <td>{{agencia.Telefono}}</td>
@@ -22,27 +22,24 @@
         </tbody>
     </table>
 </div>
-    <div class="modal fade" id="detalle">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h4 class="modal-title">Detalle de agencia</h4>
-                </div>
-                <div class="modal-body mt-2" >
-                    <a class="text-left mr-5">N° de Agencia:</a> <a style="color: floralwhite; float:inline-start">{{seleccionada.Agencia}}</a><br>
-                    <a class="text-left mr-5">Titular:</a> <a style="color: floralwhite; float:inline-start">{{seleccionada.Titular}}</a><br>
-                    <a class="text-left mr-5">Domicilio:</a> <a style="color: floralwhite; float:inline-start">{{seleccionada.Direccion}}</a><br>
-                    <a class="text-left mr-5">Localidad:</a> <a style="color: floralwhite; float:inline-start">{{seleccionada.Localidad}}</a><br>
-                    <a class="text-left mr-5">Telefonos:</a> <a style="color: floralwhite; float:inline-start">{{seleccionada.Telefono}}</a><br>
-                    <a class="text-left mr-5">Alternativos:</a> <a style="color: floralwhite; float:inline-start">{{seleccionada.Altenativos}}</a><br>
-                    <a class="text-left mr-5">Fecha de alta:</a> <a style="color: floralwhite; float:inline-start">{{seleccionada.Alta | date: 'dd/MM/yyyy'}}</a><br>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-sm btn-default" data-dismiss="modal">Cerrar</button>
-                </div>
+<div class="modal fade" id="detalle">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title">Detalle de agencia</h4>
+            </div>
+            <div class="modal-body mt-2" >
+                <a class="text-left mr-5">N° de Agencia:</a> <a style="color: floralwhite; float:inline-start">{{seleccionada.Agencia}}</a><br>
+                <a class="text-left mr-5">Titular:</a> <a style="color: floralwhite; float:inline-start">{{seleccionada.Titular}}</a><br>
+                <a class="text-left mr-5">Domicilio:</a> <a style="color: floralwhite; float:inline-start">{{seleccionada.Direccion}}</a><br>
+                <a class="text-left mr-5">Localidad:</a> <a style="color: floralwhite; float:inline-start">{{seleccionada.Localidad}}</a><br>
+                <a class="text-left mr-5">Telefonos:</a> <a style="color: floralwhite; float:inline-start">{{seleccionada.Telefono}}</a><br>
+                <a class="text-left mr-5">Alternativos:</a> <a style="color: floralwhite; float:inline-start">{{seleccionada.Altenativos}}</a><br>
+                <a class="text-left mr-5">Fecha de alta:</a> <a style="color: floralwhite; float:inline-start">{{seleccionada.Alta | date: 'dd/MM/yyyy'}}</a><br>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-sm btn-default" data-dismiss="modal">Cerrar</button>
             </div>
         </div>
     </div>
-
-
-
+</div>

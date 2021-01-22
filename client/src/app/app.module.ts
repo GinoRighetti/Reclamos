@@ -12,6 +12,7 @@ import { UsuariosListComponent } from './component/usuarios/usuarios-list/usuari
 import { UsuariosFormComponent } from './component/usuarios/usuarios-form/usuarios-form.component';
 import { NavegationHeaderComponent } from './component/navegation-header/navegation-header.component';
 import { AgenciasListComponent } from './component/agencias/agencias-list/agencias-list.component';
+import { FilterPipe } from './component/agencias/pipes/filter.pipe';
 
 
 
@@ -22,6 +23,7 @@ import { AgenciasListComponent } from './component/agencias/agencias-list/agenci
     UsuariosFormComponent,
     NavegationHeaderComponent,
     AgenciasListComponent,
+    FilterPipe,
   ],
   imports: [
     BrowserModule,

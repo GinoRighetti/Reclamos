@@ -19,7 +19,7 @@ export class AgenciasListComponent implements OnInit {
   ngOnInit(): void {
     this.actualizar()
   }
-
+  filterTitular = '';
   actualizar(){
     this.agenciasService.getAgencias().subscribe(
       res => this.agencias = res,
