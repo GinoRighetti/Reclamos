@@ -3,7 +3,16 @@
         <thead>
             <tr>
             <th scope="col">Agencia</th>
-            <th scope="col">Titular <input type="text" class="form-control" name="filterTitular" placeholder="Buscar..." [(ngModel)]="filterTitular"> </th>
+            <th scope="col">
+                    <div class="dropright">
+                        <a class="dropdown-toggle" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Titular
+                        </a>
+                        <div class="dropdown-menu input-group-sm" aria-labelledby="dropdownMenuButton" style="text-align: left;">
+                            <input type="text" class="form-control" name="filterTitular" placeholder="Buscar..." [(ngModel)]="filterTitular" style="border: none;" aria-label="Small" aria-describedby="inputGroup-sizing-sm">
+                        </div>
+                    </div>
+            </th>
             <th scope="col">Telefono</th>
             <th scope="col">Dirección</th>
             <th scope="col">Localidad</th>
