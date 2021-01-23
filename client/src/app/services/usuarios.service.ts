@@ -18,6 +18,10 @@ export class UsuariosService {
     return this.http.get(`${this.API_URI}/${id}`);
   }
 
+   getNombreUsuario(usuario: string) {
+    return this.http.get(`${this.API_URI}/${usuario}`);
+  }
+
   createUsuario (usuario: Usuario){
     return this.http.post(`${this.API_URI}`,usuario);
   }

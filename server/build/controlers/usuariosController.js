@@ -32,6 +32,17 @@ class UsuarioController {
             res.status(404).json({ text: "El usuario no existe" });
         });
     }
+    getUsuario(req, res) {
+        return __awaiter(this, void 0, void 0, function* () {
+            const { nombre } = req.params;
+            const usuario = yield database_1.default.query('SELECT * FROM Usuarios WHERE Usuario = ?', [nombre]);
+            console.log(usuario);
+            if (usuario.length > 0) {
+                return res.json(usuario[0]);
+            }
+            res.status(404).json({ text: "El usuario no existe" });
+        });
+    }
     create(req, res) {
         return __awaiter(this, void 0, void 0, function* () {
             const result = yield database_1.default.query('INSERT INTO Usuarios SET ?', [req.body]);

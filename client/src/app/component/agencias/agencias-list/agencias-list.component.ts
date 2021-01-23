@@ -1,5 +1,4 @@
 import { Component, HostBinding, OnInit } from '@angular/core';
-import { Agencia } from 'src/app/models/agencias';
 import { AgenciasService } from '../../../services/agencias.service';
 
 @Component({

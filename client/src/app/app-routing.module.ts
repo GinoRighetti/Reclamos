@@ -3,11 +3,13 @@ import { Routes, RouterModule } from '@angular/router';
 import { UsuariosFormComponent } from './component/usuarios/usuarios-form/usuarios-form.component';
 import { UsuariosListComponent } from './component/usuarios/usuarios-list/usuarios-list.component';
 import { AgenciasListComponent } from './component/agencias/agencias-list/agencias-list.component';
+import { LoginComponent } from './component/login/login.component';
+import { ReclamosListComponent } from './component/reclamos/reclamos-list/reclamos-list.component';
 
 const routes: Routes = [
   {
     path: '',
-    redirectTo: '/',
+    redirectTo: '/acceso',
     pathMatch: 'full'
   },
   {
@@ -25,6 +27,14 @@ const routes: Routes = [
   {
     path: 'agencias',
     component: AgenciasListComponent 
+  },
+  {
+    path: 'acceso',
+    component: LoginComponent 
+  },
+  {
+    path: 'reclamos',
+    component: ReclamosListComponent
   }
 ];
 
