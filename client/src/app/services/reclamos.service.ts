@@ -1,13 +1,13 @@
 import { Injectable } from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 
-import {Reclamo} from '../models/reclamos';
+import { Reclamo } from '../models/reclamos';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ReclamosService {
-  API_URI = 'http://localhost:3000/usuarios';
+  API_URI = 'http://localhost:3000/reclamos';
   constructor(private http: HttpClient) { }
 
   getReclamos(){

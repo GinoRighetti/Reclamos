@@ -1,4 +1,4 @@
-export interface Agencia {
+export interface Reclamo {
     id?: number;
     Fecha: Date;
     Contacto: string;
