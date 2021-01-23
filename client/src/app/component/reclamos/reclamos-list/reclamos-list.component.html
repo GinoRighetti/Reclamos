@@ -1,0 +1,61 @@
+<div class="container" >
+    <table class="table table-sm table-striped table-dark">
+        <thead>
+            <tr>
+            <th scope="col">N° Reclamo</th>
+            <th scope="col">Fecha</th>
+            <th scope="col">Contacto</th>
+            <th scope="col">
+                    <div class="dropright">
+                        <a class="dropdown-toggle" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Maquina
+                        </a>
+                        <div class="dropdown-menu input-group-sm" aria-labelledby="dropdownMenuButton" style="text-align: left;">
+                            <input type="text" class="form-control" name="filterTitular" placeholder="Buscar..." [(ngModel)]="filtertj" style="border: none;" aria-label="Small" aria-describedby="inputGroup-sizing-sm">
+                        </div>
+                    </div>
+            </th>
+            <th scope="col">Problema</th>
+            <th scope="col">Observaciones</th>
+            <th scope="col">Usuario</th>
+            <th scope="col">Estado</th>
+            </tr>
+        </thead>
+        <tbody>
+                <tr *ngFor="let reclamo of reclamos | filter:filtertj">
+                    <th scope="row">{{reclamo.id}}</th>
+                    <td>{{reclamo.Fecha}}</td>
+                    <td>{{reclamo.Contacto}}</td>
+                    <td>{{reclamo.Id_tjs}}</td>
+                    <td>{{reclamo.Problema}}</td>
+                    <td>{{reclamo.Observaciones}}</td>
+                    <td>{{reclamo.Id_Usuario}}</td>
+                    <td>{{reclamo.Estado}}</td>
+                    <td> <a href="#detalle" (click)="seleccion(reclamo.id)" data-toggle="modal"><i class="fas fa-sm fa-search-plus"></i></a> </td>
+                </tr>
+
+        </tbody>
+    </table>
+</div>
+<div class="modal fade" id="detalle">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title">Detalle del reclamo</h4>
+            </div>
+            <div class="modal-body mt-2" >
+                <a class="text-left mr-5">N° de Reclamo:</a> <a style="color: floralwhite; float:inline-start">{{seleccionado.id}}</a><br>
+                <a class="text-left mr-5">Fecha:</a> <a style="color: floralwhite; float:inline-start">{{seleccionado.Fecha | date: 'dd/MM/yyyy'}}</a><br>
+                <a class="text-left mr-5">Contacto:</a> <a style="color: floralwhite; float:inline-start">{{seleccionado.Contacto}}</a><br>
+                <a class="text-left mr-5">Maquina:</a> <a style="color: floralwhite; float:inline-start">{{seleccionado.Id_tjs}}</a><br>
+                <a class="text-left mr-5">Problema:</a> <a style="color: floralwhite; float:inline-start">{{seleccionado.Problema}}</a><br>
+                <a class="text-left mr-5">Observaciones:</a> <a style="color: floralwhite; float:inline-start">{{seleccionado.Observaciones}}</a><br>
+                <a class="text-left mr-5">Usuario:</a> <a style="color: floralwhite; float:inline-start">{{seleccionado.Id_Usuario}</a><br>
+                <a class="text-left mr-5">Estado:</a> <a style="color: floralwhite; float:inline-start">{{seleccionado.Estado}}</a><br>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-sm btn-default" data-dismiss="modal">Cerrar</button>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,1 @@
+Es un componente para gestioanr los reclamos. Es el eje central del desarrollo de esta solucion informatica. 
