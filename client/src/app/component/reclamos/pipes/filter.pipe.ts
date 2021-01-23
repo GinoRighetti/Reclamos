@@ -1,18 +1,19 @@
 import { Pipe, PipeTransform } from '@angular/core';
 
 @Pipe({
-  name: 'filter'
+  name: 'filterReclamo'
 })
-export class FilterPipe implements PipeTransform {
+export class FilterPipeReclamo implements PipeTransform {
 
-  transform(value: any, ...arg: any): any {
+  transform(value: any, arg: any): any {
     const resultTj = [];
-    for(const tj of value){
+    /*for(const tj of value){
       if(tj.Maquina.indexOf(arg) > -1){
         resultTj.push(tj);
       }
     }
-    return resultTj;
+    return resultTj;*/
+    return value;
   }
 
 }

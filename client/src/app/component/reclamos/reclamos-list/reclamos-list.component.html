@@ -22,7 +22,7 @@
             </tr>
         </thead>
         <tbody>
-                <tr *ngFor="let reclamo of reclamos | filter:filtertj">
+                <tr *ngFor="let reclamo of reclamos | filterReclamo:filtertj">
                     <th scope="row">{{reclamo.id}}</th>
                     <td>{{reclamo.Fecha}}</td>
                     <td>{{reclamo.Contacto}}</td>

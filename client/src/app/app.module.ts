@@ -14,6 +14,7 @@ import { UsuariosFormComponent } from './component/usuarios/usuarios-form/usuari
 import { NavegationHeaderComponent } from './component/navegation-header/navegation-header.component';
 import { AgenciasListComponent } from './component/agencias/agencias-list/agencias-list.component';
 import { FilterPipe } from './component/agencias/pipes/filter.pipe';
+import { FilterPipeReclamo } from './component/reclamos/pipes/filter.pipe';
 import { LoginComponent } from './component/login/login.component';
 import { ReclamosListComponent } from './component/reclamos/reclamos-list/reclamos-list.component';
 
@@ -27,6 +28,7 @@ import { ReclamosListComponent } from './component/reclamos/reclamos-list/reclam
     NavegationHeaderComponent,
     AgenciasListComponent,
     FilterPipe,
+    FilterPipeReclamo,
     LoginComponent,
     ReclamosListComponent,
   ],
