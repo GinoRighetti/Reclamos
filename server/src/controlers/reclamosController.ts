@@ -5,7 +5,7 @@ import pool from '../routes/database';
 class ReclamosController{
 
     public async list (req: Request, res: Response) {
-        const reclamo = await pool.query('SELECT * FROM Reclamos');
+        const reclamo = await pool.query("SELECT reclamos.Id, reclamos.Fecha, reclamos.Contacto, CONCAT(`Agencia`,'-',LPAD(`Subagencia`, 3, '0'),'-',`Maquina`) AS 'tj', reclamos.Problema, usuarios.Usuario, reclamos.Estado FROM `reclamos`, `usuarios`, `tjs` WHERE ((reclamos.Id_tjs = tjs.Id) AND (reclamos.Id_Usuario = usuarios.Id))");
         res.json(reclamo);
     }
 

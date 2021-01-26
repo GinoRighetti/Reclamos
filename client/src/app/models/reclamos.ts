@@ -2,9 +2,9 @@ export interface Reclamo {
     id?: number;
     Fecha: Date;
     Contacto: string;
-    Id_tjs: number;
+    Tj: string;
     Problema: string;
     Observaciones: string;
-    Id_Usuario: number;
+    Usuario: string;
     Estado: number;
 }
