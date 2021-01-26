@@ -26,7 +26,7 @@
                     <th scope="row">{{reclamo.Id}}</th>
                     <td>{{reclamo.Fecha | date: 'dd/MM/yyyy'}}</td>
                     <td>{{reclamo.Contacto}}</td>
-                    <td>{{reclamo.Tj}}</td>
+                    <td>{{reclamo.tj}}</td>
                     <td>{{reclamo.Problema}}</td>
                     <td>{{reclamo.Observaciones}}</td>
                     <td>{{reclamo.Usuario}}</td>
@@ -44,14 +44,42 @@
                 <h4 class="modal-title">Detalle del reclamo</h4>
             </div>
             <div class="modal-body mt-2" >
-                <a class="text-left mr-5">N° de Reclamo:</a> <a style="color: floralwhite; float:inline-start">{{seleccionado.Id}}</a><br>
-                <a class="text-left mr-5">Fecha:</a> <a style="color: floralwhite; float:inline-start">{{seleccionado.Fecha | date: 'dd/MM/yyyy'}}</a><br>
-                <a class="text-left mr-5">Contacto:</a> <a style="color: floralwhite; float:inline-start">{{seleccionado.Contacto}}</a><br>
-                <a class="text-left mr-5">Maquina:</a> <a style="color: floralwhite; float:inline-start">{{seleccionado.Tj}}</a><br>
-                <a class="text-left mr-5">Problema:</a> <a style="color: floralwhite; float:inline-start">{{seleccionado.Problema}}</a><br>
-                <a class="text-left mr-5">Observaciones:</a> <a style="color: floralwhite; float:inline-start">{{seleccionado.Observaciones}}</a><br>
-                <a class="text-left mr-5">Usuario:</a> <a style="color: floralwhite; float:inline-start">{{seleccionado.Usuario}}</a><br>
-                <a class="text-left mr-5">Estado:</a> <a style="color: floralwhite; float:inline-start">{{seleccionado.Estado}}</a><br>
+                <table class="table table-sm">
+                    <tbody style="color: darkgray;">
+                      <tr>
+                        <th>N° de Reclamo:</th>
+                        <td><a style="color: floralwhite; float:inline-start">{{seleccionado.Id}}</a></td>
+                      </tr>
+                      <tr>
+                        <th>Fecha:</th>
+                        <td> <a style="color: floralwhite; float:inline-start">{{seleccionado.Fecha | date: 'dd/MM/yyyy'}}</a></td>
+                      </tr>
+                      <tr>
+                        <th>Contacto:</th>
+                        <td><a style="color: floralwhite; float:inline-start">{{seleccionado.Contacto}}</a></td>
+                      </tr>
+                      <tr>
+                        <th>Maquina:</th>
+                        <td><a style="color: floralwhite; float:inline-start">{{seleccionado.tj}}</a></td>
+                      </tr>
+                      <tr>
+                        <th>Problema:</th>
+                        <td><a style="color: floralwhite; float:inline-start">{{seleccionado.Problema}}</a></td>
+                      </tr>
+                      <tr>
+                        <th>Observaciones:</th>
+                        <td><a style="color: floralwhite; float:inline-start">{{seleccionado.Observaciones}}</a></td>
+                      </tr>
+                      <tr>
+                        <th>Usuario:</th>
+                        <td><a style="color: floralwhite; float:inline-start">{{seleccionado.Usuario}}</a></td>
+                      </tr>
+                      <tr>
+                        <th>Estado:</th>
+                        <td><a style="color: floralwhite; float:inline-start">{{seleccionado.Estado}}</a></td>
+                      </tr>
+                    </tbody>
+                  </table>
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-sm btn-default" data-dismiss="modal">Cerrar</button>

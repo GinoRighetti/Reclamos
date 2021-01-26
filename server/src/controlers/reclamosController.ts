@@ -5,13 +5,13 @@ import pool from '../routes/database';
 class ReclamosController{
 
     public async list (req: Request, res: Response) {
-        const reclamo = await pool.query("SELECT reclamos.Id, reclamos.Fecha, reclamos.Contacto, CONCAT(`Agencia`,'-',LPAD(`Subagencia`, 3, '0'),'-',`Maquina`) AS 'tj', reclamos.Problema, usuarios.Usuario, reclamos.Estado FROM `reclamos`, `usuarios`, `tjs` WHERE ((reclamos.Id_tjs = tjs.Id) AND (reclamos.Id_Usuario = usuarios.Id))");
+        const reclamo = await pool.query("SELECT reclamos.Id, reclamos.Fecha, reclamos.Contacto, CONCAT(`Agencia`,'-',LPAD(`Subagencia`, 3, '0'),'-',`Maquina`) AS 'tj', reclamos.Problema, usuarios.Usuario, reclamos.Observaciones, reclamos.Estado FROM `reclamos`, `usuarios`, `tjs` WHERE ((reclamos.Id_tjs = tjs.Id) AND (reclamos.Id_Usuario = usuarios.Id))");
         res.json(reclamo);
     }
 
     public async getOne (req: Request, res: Response) {
         const { id } = req.params;
-        const reclamo = await pool.query('SELECT * FROM Reclamos WHERE Id = ?', [id]);
+        const reclamo = await pool.query("SELECT reclamos.Id, reclamos.Fecha, reclamos.Contacto, CONCAT(`Agencia`,'-',LPAD(`Subagencia`, 3, '0'),'-',`Maquina`) AS 'tj', reclamos.Problema, usuarios.Usuario, reclamos.Observaciones, reclamos.Estado FROM `reclamos`, `usuarios`, `tjs` WHERE ((reclamos.Id_tjs = tjs.Id) AND (reclamos.Id_Usuario = usuarios.Id)) AND reclamos.Id = ?", [id]);
         console.log(reclamo);
         if (reclamo.length > 0) {
             return res.json(reclamo[0]);

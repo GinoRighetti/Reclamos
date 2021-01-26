@@ -17,14 +17,14 @@ const database_1 = __importDefault(require("../routes/database"));
 class ReclamosController {
     list(req, res) {
         return __awaiter(this, void 0, void 0, function* () {
-            const reclamo = yield database_1.default.query('SELECT * FROM Reclamos');
+            const reclamo = yield database_1.default.query("SELECT reclamos.Id, reclamos.Fecha, reclamos.Contacto, CONCAT(`Agencia`,'-',LPAD(`Subagencia`, 3, '0'),'-',`Maquina`) AS 'tj', reclamos.Problema, usuarios.Usuario, reclamos.Observaciones, reclamos.Estado FROM `reclamos`, `usuarios`, `tjs` WHERE ((reclamos.Id_tjs = tjs.Id) AND (reclamos.Id_Usuario = usuarios.Id))");
             res.json(reclamo);
         });
     }
     getOne(req, res) {
         return __awaiter(this, void 0, void 0, function* () {
             const { id } = req.params;
-            const reclamo = yield database_1.default.query('SELECT * FROM Reclamos WHERE Id = ?', [id]);
+            const reclamo = yield database_1.default.query("SELECT reclamos.Id, reclamos.Fecha, reclamos.Contacto, CONCAT(`Agencia`,'-',LPAD(`Subagencia`, 3, '0'),'-',`Maquina`) AS 'tj', reclamos.Problema, usuarios.Usuario, reclamos.Observaciones, reclamos.Estado FROM `reclamos`, `usuarios`, `tjs` WHERE ((reclamos.Id_tjs = tjs.Id) AND (reclamos.Id_Usuario = usuarios.Id)) AND reclamos.Id = ?", [id]);
             console.log(reclamo);
             if (reclamo.length > 0) {
                 return res.json(reclamo[0]);
