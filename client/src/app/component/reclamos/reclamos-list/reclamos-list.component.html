@@ -1,13 +1,13 @@
-<div class="container-fluid" >
+<div class="container">
     <table class="table table-sm table-striped table-dark">
         <thead>
             <tr>
-            <th scope="col">N° Reclamo</th>
-            <th scope="col">Fecha reclamo</th>
-            <th scope="col">Contacto</th>
-            <th scope="col">
+            <th scope="col" style="color: darkgrey;">N° Reclamo</th>
+            <th scope="col"style="color: darkgrey;">Fecha reclamo</th>
+            <th scope="col"style="color: darkgrey;">Contacto</th>
+            <th scope="col"style="color: darkgrey;">
                     <div class="dropright">
-                        <a class="dropdown-toggle" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <a class="dropdown-toggle" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="color: darkgrey;">
                             Maquina
                         </a>
                         <div class="dropdown-menu input-group-sm" aria-labelledby="dropdownMenuButton" style="text-align: left;">
@@ -15,14 +15,14 @@
                         </div>
                     </div>
             </th>
-            <th scope="col">Problema</th>
-            <th scope="col">Observaciones</th>
-            <th scope="col">Recibido por</th>
-            <th scope="col">Estado</th>
-            <th scope="col">Fecha solución</th>
-            <th scope="col">Solución</th>
-            <th scope="col">Derivación</th>
-            <th scope="col">Resuelto por</th>
+            <th scope="col" style="color: darkgrey;">Problema</th>
+            <th scope="col" style="color: darkgrey;">Observaciones</th>
+            <th scope="col" style="color: darkgrey;">Recibido por</th>
+            <th scope="col" style="color: darkgrey;">Estado</th>
+            <th scope="col" style="color: darkgrey;">Fecha solución</th>
+            <th scope="col" style="color: darkgrey;">Solución</th>
+            <th scope="col" style="color: darkgrey;">Derivación</th>
+            <th scope="col" style="color: darkgrey;">Resuelto por</th>
 
             </tr>
         </thead>
@@ -38,7 +38,7 @@
                     <td>{{reclamo.Estado? 'Solucionado' : 'Pendiente'}}</td>
                     <td>{{reclamo.F_solucion | date: 'dd/MM/yyyy'}}</td>
                     <td>{{reclamo.Solucion}}</td>
-                    <td>{{reclamo.Derivacion? 'Derivado' : ''}}</td>
+                    <td>{{reclamo.Derivacion? 'Derivado' : '---'}}</td>
                     <td>{{reclamo.U_solucion}}</td>
                     <td> <a href="#detalle" (click)="seleccion(reclamo.N_reclamo)" data-toggle="modal"><i class="fas fa-sm fa-search-plus"></i></a> </td>
                 </tr>
@@ -85,7 +85,7 @@
                       </tr>
                       <tr>
                         <th>Estado:</th>
-                        <td><a style="color: floralwhite; float:inline-start">{{seleccionado.Estado}}</a></td>
+                        <td><a style="color: floralwhite; float:inline-start">{{seleccionado.Estado? 'Solucionado' : 'Pendiente'}}</a></td>
                       </tr>
                       <tr>
                         <th>Fecha solución:</th>
@@ -97,7 +97,7 @@
                       </tr>
                       <tr>
                         <th>Derivación:</th>
-                        <td><a style="color: floralwhite; float:inline-start">{{seleccionado.Derivacion}}</a></td>
+                        <td><a style="color: floralwhite; float:inline-start">{{seleccionado.Derivacion? 'Derivado' : '---'}}</a></td>
                       </tr>
                       <tr>
                         <th>Resuelto por:</th>
