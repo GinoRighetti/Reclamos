@@ -11,7 +11,24 @@ export class ReclamosFormComponent implements OnInit {
 
   @HostBinding('class') classes = 'row';
 
-  reclamo: any = [];
+  reclamo: any ={
+    N_reclamo?: 0,
+    F_reclamo: new Date,
+    Contacto: "",
+    Metodo_Contacto: "",
+    Tj: "",
+    Problema: "",
+    Observaciones: "",
+    Id_u_r: "",
+    U_reclamo: "",
+    Estado: "",
+    N_solucion: "",
+    F_solucion: new Date,
+    Solucion: "",
+    Derivacion: "",
+    Id_u_s: "",
+    U_solucion: ""
+  };
   
   editar : boolean = false;
 

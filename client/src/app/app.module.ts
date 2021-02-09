@@ -17,6 +17,7 @@ import { FilterPipe } from './component/agencias/pipes/filter.pipe';
 import { FilterPipeReclamo } from './component/reclamos/pipes/filter.pipe';
 import { LoginComponent } from './component/login/login.component';
 import { ReclamosListComponent } from './component/reclamos/reclamos-list/reclamos-list.component';
+import { ReclamosFormComponent } from './component/reclamos/reclamos-form/reclamos-form.component';
 
 
 
@@ -31,6 +32,7 @@ import { ReclamosListComponent } from './component/reclamos/reclamos-list/reclam
     FilterPipeReclamo,
     LoginComponent,
     ReclamosListComponent,
+    ReclamosFormComponent,
   ],
   imports: [
     BrowserModule,

@@ -5,6 +5,7 @@ import { UsuariosListComponent } from './component/usuarios/usuarios-list/usuari
 import { AgenciasListComponent } from './component/agencias/agencias-list/agencias-list.component';
 import { LoginComponent } from './component/login/login.component';
 import { ReclamosListComponent } from './component/reclamos/reclamos-list/reclamos-list.component';
+import { ReclamosFormComponent } from './component/reclamos/reclamos-form/reclamos-form.component';
 
 const routes: Routes = [
   {
@@ -35,6 +36,14 @@ const routes: Routes = [
   {
     path: 'reclamos',
     component: ReclamosListComponent
+  },
+  {
+    path: 'reclamos/nuevo',
+    component: ReclamosFormComponent
+  },
+  {
+    path: 'reclamos/editar/:id',
+    component: ReclamosFormComponent
   }
 ];
 

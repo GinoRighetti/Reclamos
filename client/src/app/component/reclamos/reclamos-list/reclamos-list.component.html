@@ -1,3 +1,6 @@
+<div>
+  <a  [routerLink]="'/reclamos/nuevo'">Nuevo</a>
+</div>
 <div class="container">
     <table class="table table-sm table-striped table-dark">
         <thead>
@@ -5,6 +8,7 @@
             <th scope="col" style="color: darkgrey;">N° Reclamo</th>
             <th scope="col"style="color: darkgrey;">Fecha reclamo</th>
             <th scope="col"style="color: darkgrey;">Contacto</th>
+            <th scope="col"style="color: darkgrey;">Medio</th>
             <th scope="col"style="color: darkgrey;">
                     <div class="dropright">
                         <a class="dropdown-toggle" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="color: darkgrey;">
@@ -31,6 +35,7 @@
                     <th scope="row">{{reclamo.N_reclamo}}</th>
                     <td>{{reclamo.F_reclamo | date: 'dd/MM/yyyy'}}</td>
                     <td>{{reclamo.Contacto}}</td>
+                    <td>{{reclamo.Metodo_Contacto}}</td>
                     <td>{{reclamo.Tj}}</td>
                     <td>{{reclamo.Problema}}</td>
                     <td>{{reclamo.Observaciones}}</td>
@@ -66,6 +71,10 @@
                       <tr>
                         <th>Contacto:</th>
                         <td><a style="color: floralwhite; float:inline-start">{{seleccionado.Contacto}}</a></td>
+                      </tr>
+                      <tr>
+                        <th>Medio:</th>
+                        <td><a style="color: floralwhite; float:inline-start">{{seleccionado.Metodo_Contacto}}</a></td>
                       </tr>
                       <tr>
                         <th>Maquina:</th>
@@ -108,7 +117,8 @@
                   </table>
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-sm btn-default" data-dismiss="modal">Cerrar</button>
+              <button type="button" class="btn btn-sm btn-success d-flex"  [routerLink]="['/reclamos/editar',seleccionado.N_reclamo]" data-dismiss="modal">Modificar</button> 
+              <button type="button" class="btn btn-sm btn-default" data-dismiss="modal">Cerrar</button>
             </div>
         </div>
     </div>

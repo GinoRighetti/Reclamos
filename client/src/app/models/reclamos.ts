@@ -2,6 +2,7 @@ export interface Reclamo {
     N_reclamo?: number;
     F_reclamo: Date;
     Contacto: string;
+    Metodo_Contacto: string;
     Tj: string;
     Problema: string;
     Observaciones: string;
@@ -19,6 +20,7 @@ export interface ReclamoNuevo {
     Id?: number;
     Fecha: Date;
     Contacto: string;
+    Metodo_Contacto: string;
     Id_tjs: string;
     Problema: string;
     Observaciones: string;

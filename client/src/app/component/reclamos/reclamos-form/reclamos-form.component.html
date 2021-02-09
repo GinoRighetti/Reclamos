@@ -21,9 +21,9 @@
                       <input type="text" class="form-control" id="contacto" [(ngModel)]="reclamo.Contacto" placeholder="Contacto">
                     </div>
                     <div class="form-group col-8">
-                      <label for="metodo">Fecha</label>
-                      <select class="btn-primary ml-1" name="metodo"  [(ngModel)]="reclamo.Metodo_Contacto" >
-                        <option value="Telefono">Telefono</option> 
+                      <label for="metodo">Medio de contacto</label>
+                      <select class="form-control" name="metodo"  [(ngModel)]="reclamo.Metodo_Contacto" >
+                        <option selected value="Telefono">Telefono</option> 
                         <option value="Whatsapp">Whatsapp</option> 
                         <option value="Mail">Mail</option> 
                         <option value="Personal">Personal</option> 
@@ -31,23 +31,9 @@
                       </select>
                     </div>
                 </div>
-                <div class="form-group">
-                    <input type="text" name="Apellido"  [(ngModel)]="reclamo.Contacto" placeholder="Nombre"class="form-control" required>
-                </div>  
-                <div class="form-group">
-                    <input type="email" name="Email"  [(ngModel)]="reclamo.Metodo_Contacto" placeholder="Email" class="form-control" required>
-                </div>  
-                <div class="form-group">
-                    <input type="text" name="Usuario"  [(ngModel)]="reclamo.Tj" placeholder="Usuario" class="form-control" required>
-                </div>  
-                <div class="form-group">
-                    <input type="password" name="Clave"  [(ngModel)]="reclamo.Problema" placeholder="Contraseña" class="form-control" required>
-                </div>
-                Tipo de usuario
-                <select class="btn-primary ml-1" name="tipo"  [(ngModel)]="reclamo.Observaciones" >
-                    <option value="0">Usuario</option> 
-                    <option value="1">Administrador</option> 
-                </select>
+                
+               
+                
                 <button class="btn btn-success btn-block mt-5" (click)="editar ? actualizarReclamo() : guardarReclamo()">
                     {{reclamo.N_reclamo == 0 ? 'Guardar nuevo reclamo' : 'Actualizar reclamo existente'}}
                 </button> 
