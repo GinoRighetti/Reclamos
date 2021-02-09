@@ -1,0 +1,72 @@
+<div class="col-md-6 ">
+    <div class="card card-header text-center">
+        <h4>{{reclamo.N_reclamo == 0 ? 'Generación de un nuevo reclamo' : 'Actualización de reclamo existente'}}</h4>
+    </div>
+    <div class="card">
+        <div class="card-body">
+            <form>
+                <div class="form-row">
+                    <div class="form-group col-4">
+                      <label for="n_reclamo">N° reclamo</label>
+                      <input type="text" class="form-control" id="n_reclamo" [(ngModel)]="reclamo.N_reclamo" placeholder="Número de reclamo" readonly>
+                    </div>
+                    <div class="form-group col-8">
+                      <label for="fecha_reclamo">Fecha</label>
+                      <input type="date" class="form-control" id="fecha_reclamo" [(ngModel)]="reclamo.F_reclamo" placeholder="Fecha del reclamo">
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group col-4">
+                      <label for="contacto">Contacto</label>
+                      <input type="text" class="form-control" id="contacto" [(ngModel)]="reclamo.Contacto" placeholder="Contacto">
+                    </div>
+                    <div class="form-group col-8">
+                      <label for="metodo">Fecha</label>
+                      <select class="btn-primary ml-1" name="metodo"  [(ngModel)]="reclamo.Metodo_Contacto" >
+                        <option value="Telefono">Telefono</option> 
+                        <option value="Whatsapp">Whatsapp</option> 
+                        <option value="Mail">Mail</option> 
+                        <option value="Personal">Personal</option> 
+                        <option value="Otro">Otro</option> 
+                      </select>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <input type="text" name="Apellido"  [(ngModel)]="reclamo.Contacto" placeholder="Nombre"class="form-control" required>
+                </div>  
+                <div class="form-group">
+                    <input type="email" name="Email"  [(ngModel)]="reclamo.Metodo_Contacto" placeholder="Email" class="form-control" required>
+                </div>  
+                <div class="form-group">
+                    <input type="text" name="Usuario"  [(ngModel)]="reclamo.Tj" placeholder="Usuario" class="form-control" required>
+                </div>  
+                <div class="form-group">
+                    <input type="password" name="Clave"  [(ngModel)]="reclamo.Problema" placeholder="Contraseña" class="form-control" required>
+                </div>
+                Tipo de usuario
+                <select class="btn-primary ml-1" name="tipo"  [(ngModel)]="reclamo.Observaciones" >
+                    <option value="0">Usuario</option> 
+                    <option value="1">Administrador</option> 
+                </select>
+                <button class="btn btn-success btn-block mt-5" (click)="editar ? actualizarReclamo() : guardarReclamo()">
+                    {{reclamo.N_reclamo == 0 ? 'Guardar nuevo reclamo' : 'Actualizar reclamo existente'}}
+                </button> 
+            </form>
+        </div>
+    </div>
+</div>
+<div class="col-md-6  ">
+    <div class="card text-center">
+        <div class="card card-header text-center" >
+            <h4>Vista previa</h4>
+        </div>
+        <div class="card card-body text-center">
+             <br>
+            <h2> <h6>Nombre: </h6>  </h2>
+            <h2> <h6>Email: </h6>  </h2>
+            <h2> <h6>Nombre de usuario: </h6> </h2>
+            <h2> <h6>Fecha de creación: </h6>  </h2>
+            <h2> <h6>Tipo de usuario: </h6>  </h2>
+        </div>    
+    </div>
+</div>
