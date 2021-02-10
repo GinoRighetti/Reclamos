@@ -1,5 +1,6 @@
 import { Component, HostBinding, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+
 import { ReclamosService } from "../../../services/reclamos.service";
 
 @Component({

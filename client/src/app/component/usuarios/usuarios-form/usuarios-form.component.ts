@@ -1,6 +1,5 @@
 import { Component, HostBinding, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { Usuario } from "../../../models/usuarios";
 
 import { UsuariosService } from "../../../services/usuarios.service";
 

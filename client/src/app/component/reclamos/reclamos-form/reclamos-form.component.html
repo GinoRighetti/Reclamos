@@ -1,58 +1,76 @@
-<div class="col-md-6 ">
+<div class="col-12 ">
     <div class="card card-header text-center">
-        <h4>{{reclamo.N_reclamo == 0 ? 'Generación de un nuevo reclamo' : 'Actualización de reclamo existente'}}</h4>
+        <h4>{{editar ? 'Actualización de reclamo existente' : 'Generación de un nuevo reclamo'}}</h4>
     </div>
     <div class="card">
         <div class="card-body">
             <form>
                 <div class="form-row">
-                    <div class="form-group col-4">
-                      <label for="n_reclamo">N° reclamo</label>
-                      <input type="text" class="form-control" id="n_reclamo" [(ngModel)]="reclamo.N_reclamo" placeholder="Número de reclamo" readonly>
+                    <div class="form-group col-1">
+                      <label>N° reclamo</label>
+                      <input type="text" name="num-reclamo" [(ngModel)]="reclamo.N_reclamo" placeholder="N° de reclamo" class="form-control" readonly >
                     </div>
-                    <div class="form-group col-8">
-                      <label for="fecha_reclamo">Fecha</label>
-                      <input type="date" class="form-control" id="fecha_reclamo" [(ngModel)]="reclamo.F_reclamo" placeholder="Fecha del reclamo">
+                    <div class="form-group col-2">
+                      <label>Fecha</label>
+                      <input type="date" name="fecha-reclamo" datetime="dd-MM-yyyy" [(ngModel)]="reclamo.F_reclamo"  placeholder="Fecha del reclamo" class="form-control" >
+                    </div>
+                    <div class="form-group col-2">
+                        <label for="contacto">Contacto</label>
+                        <input type="text" name="contacto" [(ngModel)]="reclamo.Contacto" placeholder="N° de reclamo" class="form-control">
+                      </div>
+                      <div class="form-group col-2">
+                        <label for="metodo">Medio de contacto</label>
+                        <select [(ngModel)]="reclamo.Metodo" class="form-control" name="metodo" >
+                          <option selected value="Telefono">Telefono</option> 
+                          <option value="Whatsapp">Whatsapp</option> 
+                          <option value="Mail">Mail</option> 
+                          <option value="Personal">Personal</option> 
+                          <option value="Otro">Otro</option> 
+                        </select>
+                    </div>
+                    <div class="form-group col 4"></div>
+                    <div class="form-group col 1">
+                        <label>Atendido por</label>
+                      <input type="text" name="usuario" [(ngModel)]="reclamo.U_reclamo" placeholder="N° de reclamo" class="form-control" readonly >
                     </div>
                 </div>
                 <div class="form-row">
                     <div class="form-group col-4">
-                      <label for="contacto">Contacto</label>
-                      <input type="text" class="form-control" id="contacto" [(ngModel)]="reclamo.Contacto" placeholder="Contacto">
-                    </div>
-                    <div class="form-group col-8">
-                      <label for="metodo">Medio de contacto</label>
-                      <select class="form-control" name="metodo"  [(ngModel)]="reclamo.Metodo_Contacto" >
-                        <option selected value="Telefono">Telefono</option> 
-                        <option value="Whatsapp">Whatsapp</option> 
-                        <option value="Mail">Mail</option> 
-                        <option value="Personal">Personal</option> 
-                        <option value="Otro">Otro</option> 
-                      </select>
+                      <label>Terminal</label>
+                      <input type="text" name="terminal" [(ngModel)]="reclamo.Tj" placeholder="N° de reclamo" class="form-control">
                     </div>
                 </div>
-                
-               
-                
-                <button class="btn btn-success btn-block mt-5" (click)="editar ? actualizarReclamo() : guardarReclamo()">
-                    {{reclamo.N_reclamo == 0 ? 'Guardar nuevo reclamo' : 'Actualizar reclamo existente'}}
+                <div class="form-row">
+                    <div class="form-group col-8">
+                        <label>Problema</label>
+                        <textarea type="text" name="problema" [(ngModel)]="reclamo.Problema"  placeholder="Fecha del reclamo" class="form-control" ></textarea>
+                    </div>
+                    <div class="form-group col-4">
+                        <label>Observaciones</label>
+                        <textarea type="text" name="observaciones" [(ngModel)]="reclamo.Observaciones"  placeholder="Fecha del reclamo" class="form-control" ></textarea>
+                    </div>
+                </div>
+                <button class="btn btn-success btn-block mt-1" (click)="editar ? actualizarReclamo() : guardarReclamo()">
+                    {{editar ? 'Actualizar reclamo existente' : 'Guardar nuevo reclamo'}}
                 </button> 
             </form>
         </div>
     </div>
 </div>
-<div class="col-md-6  ">
-    <div class="card text-center">
-        <div class="card card-header text-center" >
-            <h4>Vista previa</h4>
+<div class="row">
+    <div class="col 12">
+        <div class="card text-center">
+            <div class="card card-header text-center" >
+                <h4>Vista previa</h4>
+            </div>
+            <div class="card card-body text-center">
+                 <br>
+                <h2> <h6>Nombre: </h6>  </h2>
+                <h2> <h6>Email: </h6>  </h2>
+                <h2> <h6>Nombre de usuario: </h6> </h2>
+                <h2> <h6>Fecha de creación: </h6>  </h2>
+                <h2> <h6>Tipo de usuario: </h6>  </h2>
+            </div>    
         </div>
-        <div class="card card-body text-center">
-             <br>
-            <h2> <h6>Nombre: </h6>  </h2>
-            <h2> <h6>Email: </h6>  </h2>
-            <h2> <h6>Nombre de usuario: </h6> </h2>
-            <h2> <h6>Fecha de creación: </h6>  </h2>
-            <h2> <h6>Tipo de usuario: </h6>  </h2>
-        </div>    
     </div>
 </div>
