@@ -12,7 +12,7 @@ export class ReclamosFormComponent implements OnInit {
   @HostBinding('class') classes = 'row';
 
   reclamo: any ={
-    N_reclamo?: 0,
+    N_reclamo: 0,
     F_reclamo: new Date,
     Contacto: "",
     Metodo_Contacto: "",
