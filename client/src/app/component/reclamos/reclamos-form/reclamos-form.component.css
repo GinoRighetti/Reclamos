@@ -3,5 +3,22 @@ label{
 }
 input{
     font-size: 13px;
-    height: fit-content;  
+    height: auto;
+    padding: revert; 
+}
+select{
+    font-size: 13px;
+    height: auto;
+    padding: revert; 
+}
+input.disab{
+    background-color:#32383e;
+    border: none;
+    color: silver;
+}
+label.hr {
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    border: 0;
+    border-top: 1px solid rgba(255, 4, 4, 0.1);
 }

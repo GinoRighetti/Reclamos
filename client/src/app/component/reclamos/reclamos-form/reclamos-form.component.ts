@@ -1,5 +1,7 @@
 import { Component, HostBinding, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+import {DatePipe, formatDate} from '@angular/common';
+
 
 import { ReclamosService } from "../../../services/reclamos.service";
 
@@ -39,7 +41,9 @@ export class ReclamosFormComponent implements OnInit {
     const params = this.activatedRoute.snapshot.params;
     if (params.id){
       this.reclamoService.getReclamo(params.id).subscribe(
-        res => {this.reclamo = res; this.editar = true},
+        res => {this.reclamo = res;
+                this.editar = true;
+                },
         err => console.error(err)
       )
     }
