@@ -19,6 +19,7 @@
                         </div>
                     </div>
             </th>
+            <th scope="col" style="color: darkgrey;">Motivo</th>
             <th scope="col" style="color: darkgrey;">Problema</th>
             <th scope="col" style="color: darkgrey;">Observaciones</th>
             <th scope="col" style="color: darkgrey;">Recibido por</th>
@@ -37,6 +38,7 @@
                     <td>{{reclamo.Contacto}}</td>
                     <td>{{reclamo.Metodo_Contacto}}</td>
                     <td>{{reclamo.Tj}}</td>
+                    <td>{{reclamo.Motivo}}</td>
                     <td>{{reclamo.Problema}}</td>
                     <td>{{reclamo.Observaciones}}</td>
                     <td>{{reclamo.U_reclamo}}</td>
@@ -79,6 +81,10 @@
                       <tr>
                         <th>Maquina:</th>
                         <td><a style="color: floralwhite; float:inline-start">{{seleccionado.Tj}}</a></td>
+                      </tr>
+                      <tr>
+                        <th>Motivo:</th>
+                        <td><a style="color: floralwhite; float:inline-start">{{seleccionado.Motivo}}</a></td>
                       </tr>
                       <tr>
                         <th>Problema:</th>

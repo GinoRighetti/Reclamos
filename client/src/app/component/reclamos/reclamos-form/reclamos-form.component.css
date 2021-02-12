@@ -1,6 +1,15 @@
 label{
     font-size: 12px;
 }
+label.form-check-label{
+    font-size: 13px;
+}
+input.form-check-input{
+    font-size: 13px;
+}
+textarea{
+    font-size: 13px;
+}
 input{
     font-size: 13px;
     height: auto;
