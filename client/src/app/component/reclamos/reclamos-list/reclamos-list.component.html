@@ -23,6 +23,7 @@
             <th scope="col" style="color: darkgrey;">Problema</th>
             <th scope="col" style="color: darkgrey;">Observaciones</th>
             <th scope="col" style="color: darkgrey;">Recibido por</th>
+            <th scope="col" style="color: darkgrey;">Llamar</th>
             <th scope="col" style="color: darkgrey;">Estado</th>
             <th scope="col" style="color: darkgrey;">Fecha solución</th>
             <th scope="col" style="color: darkgrey;">Solución</th>
@@ -42,10 +43,11 @@
                     <td>{{reclamo.Problema}}</td>
                     <td>{{reclamo.Observaciones}}</td>
                     <td>{{reclamo.U_reclamo}}</td>
+                    <td>{{reclamo.Estado?  'No es necesario' : 'Volver a llamar'}}</td>
                     <td>{{reclamo.Estado? 'Solucionado' : 'Pendiente'}}</td>
                     <td>{{reclamo.F_solucion | date: 'dd/MM/yyyy'}}</td>
                     <td>{{reclamo.Solucion}}</td>
-                    <td>{{reclamo.Derivacion? 'Derivado' : '---'}}</td>
+                    <td>{{reclamo.Derivacion? reclamo.Derivacion: 'No derivado'}}</td>
                     <td>{{reclamo.U_solucion}}</td>
                     <td> <a href="#detalle" (click)="seleccion(reclamo.N_reclamo)" data-toggle="modal"><i class="fas fa-sm fa-search-plus"></i></a> </td>
                 </tr>
@@ -99,6 +101,10 @@
                         <td><a style="color: floralwhite; float:inline-start">{{seleccionado.U_reclamo}}</a></td>
                       </tr>
                       <tr>
+                        <th>Llamar:</th>
+                        <td><a style="color: floralwhite; float:inline-start">{{seleccionado.Llamar? 'No es necesario' : 'Volver a llamar'}}</a></td>
+                      </tr>
+                      <tr>
                         <th>Estado:</th>
                         <td><a style="color: floralwhite; float:inline-start">{{seleccionado.Estado? 'Solucionado' : 'Pendiente'}}</a></td>
                       </tr>
@@ -112,7 +118,7 @@
                       </tr>
                       <tr>
                         <th>Derivación:</th>
-                        <td><a style="color: floralwhite; float:inline-start">{{seleccionado.Derivacion? 'Derivado' : '---'}}</a></td>
+                        <td><a style="color: floralwhite; float:inline-start">{{seleccionado.Derivacion? seleccionado.Derivacion: 'No derivado'}}</a></td>
                       </tr>
                       <tr>
                         <th>Resuelto por:</th>

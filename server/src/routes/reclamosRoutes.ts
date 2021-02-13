@@ -14,6 +14,8 @@ class ReclamosRouter {
         this.router.get('/reclamos/', reclamosController.list);
         this.router.get('/reclamos/:id', reclamosController.getOne);
         this.router.post('/reclamos/', reclamosController.create);
+        this.router.post('/reclamos/nuevo', reclamosController.createNew);
+        this.router.get('/reclamos/nuevo', reclamosController.getMaxId);
         this.router.delete('/reclamos/:id',reclamosController.delete);
         this.router.put('/reclamos/:id',reclamosController.update);
        

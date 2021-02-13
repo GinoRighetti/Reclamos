@@ -22,6 +22,10 @@ export class ReclamosService {
     return this.http.post(`${this.API_URI}`,reclamo);
   }
 
+  createId(reclamo: Reclamo){
+    return this.http.post(`${this.API_URI}/nuevo`,reclamo);
+  }
+
   deleteReclamo(id: string) {
     return this.http.delete(`${this.API_URI}/${id}`);
   }

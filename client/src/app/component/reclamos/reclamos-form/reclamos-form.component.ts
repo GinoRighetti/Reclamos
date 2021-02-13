@@ -1,6 +1,6 @@
 import { Component, HostBinding, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import {DatePipe, formatDate} from '@angular/common';
+
 
 
 import { ReclamosService } from "../../../services/reclamos.service";
@@ -34,6 +34,7 @@ export class ReclamosFormComponent implements OnInit {
   };
   
   editar : boolean = false;
+  mostrar_derivacion: boolean = false;
 
   constructor(private reclamoService: ReclamosService, private activatedRoute: ActivatedRoute, private router: Router) { }
 
@@ -46,11 +47,17 @@ export class ReclamosFormComponent implements OnInit {
                 },
         err => console.error(err)
       )
+    }else{
+      this.reclamoService.createId(this.reclamo).subscribe(
+        res => console.log(res), 
+        err => console.error(err)
+      )
     }
   }
 
+
   guardarReclamo(){
-    delete this.reclamo.id;
+    //delete this.reclamo.id;
     //this.user.Nombre = (this.user.Nombre).toUpperCase();
     //this.user.Apellido = (this.user.Apellido).toUpperCase();
     //if (this.user.Nombre=='' || this.user.Apellido=='' || this.user.Usuario=='' || this.user.Clave=='')
@@ -68,5 +75,6 @@ export class ReclamosFormComponent implements OnInit {
 
   actualizarReclamo(){
   }
+
 
 }

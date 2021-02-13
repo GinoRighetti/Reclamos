@@ -12,6 +12,7 @@ export class ReclamosListComponent implements OnInit {
 
   reclamos: any = [];
   seleccionado: any = [];
+  
 
   constructor(private reclamosService: ReclamosService) { }
 

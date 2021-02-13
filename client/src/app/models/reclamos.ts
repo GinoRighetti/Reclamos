@@ -4,15 +4,17 @@ export interface Reclamo {
     Contacto: string;
     Metodo_Contacto: string;
     Tj: string;
+    Motivo: string;
     Problema: string;
     Observaciones: string;
     Id_u_r: number;
     U_reclamo: string;
+    Llamar: number;
     Estado: number;
     N_solucion: number;
     F_solucion: Date;
     Solucion: string;
-    Derivacion: number;
+    Derivacion: string;
     Id_u_s: number;
     U_solucion: string;
 }
@@ -26,6 +28,7 @@ export interface ReclamoNuevo {
     Problema: string;
     Observaciones: string;
     Id_Usuario: number;
+    Llamar: number;
     Estado: number;
 }
 export interface Solucion {
@@ -34,5 +37,5 @@ export interface Solucion {
     Fecha: Date;
     Solucion: string;
     Id_usuario: number;
-    Derivacion: number;
+    Derivacion: string;
 }

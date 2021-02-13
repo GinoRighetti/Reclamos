@@ -1,5 +1,5 @@
 <div class="col-6 ">
-    <div class="card card-header text-center" style="padding: .10rem 1.25rem;">
+    <div class="card card-header text-center"  style="padding: .10rem 1.25rem;">
         <h5>{{editar ? 'Actualización de reclamo existente' : 'Generación de un nuevo reclamo'}}</h5>
     </div>
     <div class="card">
@@ -45,16 +45,18 @@
                     </div>
                 </div>
                 <div class="form-row">
-                    <div class="form-group-inline col-12">
+                    <div class="form-group-inline col-4">
                         <label for="metodo">Motivo del reclamo</label>
-                        <select [(ngModel)]="reclamo.Metodo" class="form-control-inline" name="metodo" >
-                          <option selected value="Telefono">Comunicación</option> 
-                          <option value="Whatsapp">Listados</option> 
-                          <option value="Mail">Equipamiento</option> 
-                          <option value="Personal">Información</option> 
-                          <option value="Otro">Otro</option> 
-                        </select>
                     </div>
+                    <div class="form-group col-4">
+                        <select [(ngModel)]="reclamo.Motivo" class="form-control" name="motivo" >
+                            <option selected value="Telefono">Comunicación</option> 
+                            <option value="Whatsapp">Listados</option> 
+                            <option value="Mail">Equipamiento</option> 
+                            <option value="Personal">Información</option> 
+                            <option value="Otro">Otro</option> 
+                          </select>
+                    </div>   
                 </div>
                 <div class="form-row">
                     <div class="form-group col-12">
@@ -69,17 +71,32 @@
                     </div>
                 </div>
                 <div class="form-row">
-                    <div class="form-check form-check-inline">
+                      <div class="form-check form-check-inline">
                         <input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="option1">
                         <label class="form-check-label" for="inlineCheckbox1">Volver a llamar</label>
                       </div>
                       <div class="form-check form-check-inline">
-                        <input class="form-check-input" type="checkbox" id="inlineCheckbox2" value="option2">
-                        <label class="form-check-label" for="inlineCheckbox2">Derivar</label>
-                      </div>
-                      <div class="form-check form-check-inline">
                         <input class="form-check-input" type="checkbox" id="inlineCheckbox3" value="option3">
                         <label class="form-check-label" for="inlineCheckbox3">Imprimir informe</label>
+                      </div>
+                      <div class="form-check form-check-inline">
+                        <input class="form-check-input" [(ngModel)]="mostrar_derivacion" type="checkbox" id="inlineCheckbox2" value="option2" name="chek_derivar">
+                        <label class="form-check-label" for="inlineCheckbox2">Derivar</label>
+                      </div>
+                      <div *ngIf="mostrar_derivacion" class="form-select form-select-inline" name="derivacion">
+                        <select [(ngModel)]="reclamo.Derivacion" class="form-control" name="derivacion" value="TecnoAccion">
+                            <option selected value="Telefono">TecnoAcción</option> 
+                            <option value="Whatsapp">Dpto. Contable</option> 
+                            <option value="Mail">Dpto. Otros juegos</option> 
+                            <option value="Personal">Dpto. Ctrl de apuestas</option> 
+                            <option value="Personal">Dpto. Financiero</option>
+                            <option value="Personal">Mesa de entradas</option>
+                            <option value="Personal">Secretaría</option>
+                            <option value="Personal">SubG. Comercial y de juegos</option>
+                            <option value="Personal">SubG. Contable</option>
+                            <option value="Personal">Gerencia</option>
+                            <option value="Otro">Otro</option> 
+                          </select>
                       </div>
                 </div>
                 <div class="form-row">
@@ -99,65 +116,25 @@
         <div class="card-body">
             <form>
                 <div class="form-row" style="margin-bottom: 0cm;">
-                    <div class="form-group col-1">
-                      <label>N° reclamo</label>
-                      <input type="text" name="num-reclamo" [(ngModel)]="reclamo.N_reclamo" placeholder="N° de reclamo" class="form-control disab" readonly>
-                    </div>
-                    <div class="form-group col-10">
+                    <div class="form-group col-2">
                       <label>Fecha</label>
-                      <input type="text" name="fecha-reclamo" value="{{reclamo.F_reclamo | date: 'dd/MM/yyyy'}}"  placeholder="Fecha del reclamo" class="form-control disab" readonly >
-                    </div>
-                    <div class="form-group col 1">
-                      <label>Atendido por</label>
-                      <input type="text" name="usuario"  [(ngModel)]="reclamo.U_reclamo" placeholder="Usuario" class="form-control disab" readonly >
-                    </div>
-                </div>
-                <div class="form-row" style="margin-top: 0cm;">
-                    <div class="form-group col-2">
-                        <label>Terminal</label>
-                        <input type="text" name="terminal" [(ngModel)]="reclamo.Tj" placeholder="Agencia-Subagencia-Maquina" class="form-control">
+                      <input type="text" name="fecha-solucion" value="{{reclamo.F_solucion | date: 'dd/MM/yyyy'}}"  placeholder="Fecha de la solución" class="form-control disab" readonly >
                     </div>
                     <div class="form-group col-2">
-                        <label for="contacto">Contacto</label>
-                        <input type="text" name="contacto" [(ngModel)]="reclamo.Contacto" placeholder="Contacto" class="form-control">
-                    </div>
-                    <div class="form-group col-10">
-                        <label for="metodo">Medio de contacto</label>
-                        <select [(ngModel)]="reclamo.Metodo" class="form-control" name="metodo" >
-                          <option selected value="Telefono">Telefono</option> 
-                          <option value="Whatsapp">Whatsapp</option> 
-                          <option value="Mail">Mail</option> 
-                          <option value="Personal">Personal</option> 
-                          <option value="Otro">Otro</option> 
-                        </select>
+                        <label>Hora</label>
+                        <input type="text" name="hora-solucion" value="{{reclamo.F_solucion | date: 'HH:mm:ss'}}"  placeholder="Hora de la solución" class="form-control disab" readonly >
+                      </div>
+                    <div class="form-group col-6"></div>
+                    <div class="form-group col 2">
+                      <label>Resuelto por</label>
+                      <input type="text" name="usuario_solucion"  [(ngModel)]="reclamo.U_solucion" placeholder="Usuario" class="form-control disab" readonly >
                     </div>
                 </div>
                 <div class="form-row">
-                    
-                </div>
-                <div class="form-row">
-                    <div class="form-group col-8">
-                        <label>Motivo del reclamo</label>
-                        <textarea type="text" name="problema" [(ngModel)]="reclamo.Problema"  placeholder="Motivo del reclamo" class="form-control" ></textarea>
+                    <div class="form-group col-12">
+                        <label>Solución</label>
+                        <textarea type="text" name="solucion" [(ngModel)]="reclamo.Solucion"  placeholder="Solución" class="form-control" ></textarea>
                     </div>
-                    <div class="form-group col-4">
-                        <label>Observaciones</label>
-                        <textarea type="text" name="observaciones" [(ngModel)]="reclamo.Observaciones"  placeholder="Observaciones" class="form-control" ></textarea>
-                    </div>
-                </div>
-                <div class="form-row">
-                    <div class="form-check form-check-inline">
-                        <input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="option1">
-                        <label class="form-check-label" for="inlineCheckbox1">Volver a llamar</label>
-                      </div>
-                      <div class="form-check form-check-inline">
-                        <input class="form-check-input" type="checkbox" id="inlineCheckbox2" value="option2">
-                        <label class="form-check-label" for="inlineCheckbox2">Derivar</label>
-                      </div>
-                      <div class="form-check form-check-inline">
-                        <input class="form-check-input" type="checkbox" id="inlineCheckbox3" value="option3">
-                        <label class="form-check-label" for="inlineCheckbox3">Imprimir informe</label>
-                      </div>
                 </div>
                 <div class="form-row">
                     <button class="btn btn-success  mt-3" (click)="editar ? actualizarReclamo() : guardarReclamo()">
