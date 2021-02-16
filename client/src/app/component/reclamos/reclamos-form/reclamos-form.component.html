@@ -115,7 +115,7 @@
     <div class="card">
         <div class="card-body">
             <form>
-                <div class="form-row" style="margin-bottom: 0cm;">
+                <div class="form-row"  *ngIf="editar">
                     <div class="form-group col-2">
                       <label>Fecha</label>
                       <input type="text" name="fecha-solucion" value="{{reclamo.F_solucion | date: 'dd/MM/yyyy'}}"  placeholder="Fecha de la solución" class="form-control disab" readonly >

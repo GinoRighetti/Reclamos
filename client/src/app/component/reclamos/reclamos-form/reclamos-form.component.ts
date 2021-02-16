@@ -1,5 +1,6 @@
 import { Component, HostBinding, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+import {} from '../../../app.component';
 
 
 
@@ -14,6 +15,7 @@ export class ReclamosFormComponent implements OnInit {
 
   @HostBinding('class') classes = 'row';
 
+  
   reclamo: any ={
     N_reclamo: 0,
     F_reclamo: new Date,
@@ -35,6 +37,7 @@ export class ReclamosFormComponent implements OnInit {
   
   editar : boolean = false;
   mostrar_derivacion: boolean = false;
+ 
 
   constructor(private reclamoService: ReclamosService, private activatedRoute: ActivatedRoute, private router: Router) { }
 
@@ -48,10 +51,16 @@ export class ReclamosFormComponent implements OnInit {
         err => console.error(err)
       )
     }else{
-      this.reclamoService.createId(this.reclamo).subscribe(
-        res => console.log(res), 
+      /*this.reclamoService.createId(this.reclamo).subscribe(
+        res => console.log(res) ,
         err => console.error(err)
-      )
+      );*/
+      this.reclamoService.getMaxId().subscribe(
+        res => {this.reclamo = res; 
+                this.reclamo.F_reclamo = new Date;
+                this.reclamo.F_solucion = new Date;                          
+        }, 
+        err => console.error(err))
     }
   }
 

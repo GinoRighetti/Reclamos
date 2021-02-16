@@ -48,4 +48,3 @@ import { ReclamosFormComponent } from './component/reclamos/reclamos-form/reclam
   bootstrap: [AppComponent]
 })
 export class AppModule { }
-export var usuarioActual:string; 

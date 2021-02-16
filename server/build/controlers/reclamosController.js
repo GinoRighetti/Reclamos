@@ -40,14 +40,19 @@ class ReclamosController {
     }
     createNew(req, res) {
         return __awaiter(this, void 0, void 0, function* () {
-            const result = yield database_1.default.query('INSERT INTO reclamos (Fecha) VALUES (null)');
+            const result = yield database_1.default.query('INSERT INTO Reclamos (Fecha) VALUES (null)');
             res.json({ message: 'Creado con exito' });
         });
     }
     getMaxId(req, res) {
         return __awaiter(this, void 0, void 0, function* () {
-            const result = yield database_1.default.query('SELECT MAX(Id) FROM `reclamos`');
-            res.json({ message: 'Seleccionado con exito' });
+            const { id } = req.params;
+            const reclamo = yield database_1.default.query("SELECT reclamos.Id as 'N_reclamo', reclamos.Fecha as 'F_reclamo', reclamos.Contacto, reclamos.Metodo_Contacto, CONCAT(`Agencia`,'-',LPAD(`Subagencia`, 3, '0'),'-',`Maquina`) AS 'Tj', reclamos.Motivo, reclamos.Problema, reclamos.Observaciones, reclamos.Id_Usuario as 'id_u_r', usuarios.Usuario as 'U_reclamo', reclamos.Llamar, reclamos.Estado, soluciones.Id as 'N_solucion', soluciones.Fecha as 'F_solucion', soluciones.Solucion, soluciones.Derivacion, soluciones.Id_Usuario as 'Id_u_s', (SELECT usuarios.Usuario FROM usuarios WHERE usuarios.Id = soluciones.Id_Usuario) as 'U_solucion' FROM `reclamos` LEFT JOIN `usuarios` ON (reclamos.Id_Usuario = usuarios.Id) LEFT JOIN `tjs` ON (reclamos.Id_tjs=tjs.Id) LEFT JOIN `soluciones` ON (reclamos.Id=soluciones.Id_reclamo) WHERE reclamos.Id = (SELECT MAX(Id) FROM reclamos)");
+            console.log(reclamo);
+            if (reclamo.length > 0) {
+                return res.json(reclamo[0]);
+            }
+            res.status(404).json({ text: "El reclamo no existe" });
         });
     }
     delete(req, res) {

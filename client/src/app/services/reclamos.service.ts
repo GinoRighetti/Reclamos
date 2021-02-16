@@ -23,7 +23,11 @@ export class ReclamosService {
   }
 
   createId(reclamo: Reclamo){
-    return this.http.post(`${this.API_URI}/nuevo`,reclamo);
+    return this.http.post(`${this.API_URI}/nuevo/`,'');
+  }
+
+  getMaxId(){
+    return this.http.get(`${this.API_URI}maxid`);
   }
 
   deleteReclamo(id: string) {
