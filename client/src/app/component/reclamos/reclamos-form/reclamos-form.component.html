@@ -27,15 +27,15 @@
                 <div class="form-row" style="margin-top: 0cm;">
                     <div class="form-group col-4">
                         <label>Terminal</label>
-                        <input type="text" name="terminal" [(ngModel)]="reclamo.Tj" placeholder="Agencia-Subagencia-Maquina" class="form-control">
+                        <input type="text" name="terminal" [(ngModel)]="reclamo.Tj" placeholder="Agencia-Subagencia-Maquina" class="form-control" required>
                     </div>
                     <div class="form-group col-4">
                         <label for="contacto">Contacto</label>
-                        <input type="text" name="contacto" [(ngModel)]="reclamo.Contacto" placeholder="Contacto" class="form-control">
+                        <input type="text" name="contacto" [(ngModel)]="reclamo.Contacto" placeholder="Contacto" class="form-control" required>
                     </div>
                     <div class="form-group col-4">
                         <label for="metodo">Medio de contacto</label>
-                        <select [(ngModel)]="reclamo.Metodo" class="form-control" name="metodo" >
+                        <select [(ngModel)]="reclamo.Metodo" class="form-control" name="metodo" required>
                           <option selected value="Telefono">Telefono</option> 
                           <option value="Whatsapp">Whatsapp</option> 
                           <option value="Mail">Mail</option> 
@@ -49,7 +49,7 @@
                         <label for="metodo">Motivo del reclamo</label>
                     </div>
                     <div class="form-group col-4">
-                        <select [(ngModel)]="reclamo.Motivo" class="form-control" name="motivo" >
+                        <select [(ngModel)]="reclamo.Motivo" class="form-control" name="motivo" required>
                             <option selected value="Telefono">Comunicación</option> 
                             <option value="Whatsapp">Listados</option> 
                             <option value="Mail">Equipamiento</option> 
@@ -61,7 +61,7 @@
                 <div class="form-row">
                     <div class="form-group col-12">
                         <label>Problema</label>
-                        <textarea type="text" name="problema" [(ngModel)]="reclamo.Problema"  placeholder="Problema" class="form-control" ></textarea>
+                        <textarea type="text" name="problema" [(ngModel)]="reclamo.Problema"  placeholder="Problema" class="form-control" required></textarea>
                     </div>
                 </div>
                 <div class="form-row">
@@ -100,7 +100,7 @@
                       </div>
                 </div>
                 <div class="form-row">
-                    <button class="btn btn-success  mt-3" (click)="editar ? actualizarReclamo() : guardarReclamo()">
+                    <button class="btn btn-success  mt-3" (click)="actualizarReclamo()">
                         {{editar ? 'Actualizar reclamo existente' : 'Guardar nuevo reclamo'}}
                     </button> 
                 </div>
@@ -137,7 +137,7 @@
                     </div>
                 </div>
                 <div class="form-row">
-                    <button class="btn btn-success  mt-3" (click)="editar ? actualizarReclamo() : guardarReclamo()">
+                    <button class="btn btn-success  mt-3" (click)="actualizarReclamo()">
                         {{editar ? 'Actualizar reclamo existente' : 'Guardar nuevo reclamo'}}
                     </button> 
                 </div>

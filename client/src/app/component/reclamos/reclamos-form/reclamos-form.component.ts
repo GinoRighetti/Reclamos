@@ -65,24 +65,19 @@ export class ReclamosFormComponent implements OnInit {
   }
 
 
-  guardarReclamo(){
-    //delete this.reclamo.id;
-    //this.user.Nombre = (this.user.Nombre).toUpperCase();
-    //this.user.Apellido = (this.user.Apellido).toUpperCase();
-    //if (this.user.Nombre=='' || this.user.Apellido=='' || this.user.Usuario=='' || this.user.Clave=='')
-    //{
-    //  alert("Debe completar todos los campos requeridos");
-    //}
-    //else{
-      this.reclamoService.createReclamo(this.reclamo).subscribe(
+  actualizarReclamo(){
+    
+    if (this.reclamo.Tj=='' || this.reclamo.Contacto=='' || this.reclamo.Metodo=='' || this.reclamo.Motivo=='' || this.reclamo.Problema=='')
+    {
+         alert("Debe completar todos los campos requeridos");
+    }
+    else{
+      this.reclamoService.updateReclamo(this.reclamo.N_reclamo,this.reclamo).subscribe(
         res => {console.log(res), 
                 this.router.navigate(['/reclamos'])},
         err => console.error(err)
       )
-    //}
-  }
-
-  actualizarReclamo(){
+    }
   }
 
 
