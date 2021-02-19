@@ -2,8 +2,7 @@ import { Component, HostBinding, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import {} from '../../../app.component';
 
-
-
+import { SolucionesService } from "../../../services/soluciones.service"
 import { ReclamosService } from "../../../services/reclamos.service";
 
 @Component({
@@ -34,12 +33,21 @@ export class ReclamosFormComponent implements OnInit {
     Id_u_s: "",
     U_solucion: ""
   };
+
+  solucion:any={
+    Id : 0,
+    Id_reclamo : this.reclamo.N_reclamo,
+    Fecha: new Date,
+    Solucion: "",
+    Id_usuario: 0,
+    Derivacion: ""
+  }
   
   editar : boolean = false;
   mostrar_derivacion: boolean = false;
  
 
-  constructor(private reclamoService: ReclamosService, private activatedRoute: ActivatedRoute, private router: Router) { }
+  constructor(private reclamoService: ReclamosService, private solucionesService: SolucionesService, private activatedRoute: ActivatedRoute, private router: Router) { }
 
   ngOnInit(): void {
     const params = this.activatedRoute.snapshot.params;
@@ -73,7 +81,20 @@ export class ReclamosFormComponent implements OnInit {
     }
     else{
       this.reclamoService.updateReclamo(this.reclamo.N_reclamo,this.reclamo).subscribe(
-        res => {console.log(res), 
+        res => {console.log(res);
+                if (this.reclamo.Solucion!=''){
+                    this.solucion.Id  
+                    this.solucion.Solucion 
+                    this.solucion.Id_reclamo = this.reclamo.N_reclamo;
+                    this.solucion.Fecha = this.reclamo.F_solucion;
+                    this.solucion.Solucion = this.reclamo.Solucion;
+                    this.solucion.Id_usuario = this.reclamo.Id_u_s;
+                    this.solucion.Derivacion = this.reclamo.Derivacion;
+                    this.solucionesService.updateSolucion(this.solucion.Id,this.solucion).subscribe(
+                      res => console.log(res),
+                      err => console.error(err)
+                    )
+                };
                 this.router.navigate(['/reclamos'])},
         err => console.error(err)
       )

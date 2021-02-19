@@ -8,7 +8,8 @@ import { AppComponent } from './app.component';
 
 import { UsuariosService } from './services/usuarios.service';
 import { AgenciasService } from './services/agencias.service';
-import { ReclamosService } from './services/reclamos.service'
+import { ReclamosService } from './services/reclamos.service';
+import { SolucionesService } from './services/soluciones.service';
 import { UsuariosListComponent } from './component/usuarios/usuarios-list/usuarios-list.component';
 import { UsuariosFormComponent } from './component/usuarios/usuarios-form/usuarios-form.component';
 import { NavegationHeaderComponent } from './component/navegation-header/navegation-header.component';
@@ -44,6 +45,7 @@ import { ReclamosFormComponent } from './component/reclamos/reclamos-form/reclam
   UsuariosService,
   AgenciasService,
   ReclamosService,
+  SolucionesService,
   ],
   bootstrap: [AppComponent]
 })
