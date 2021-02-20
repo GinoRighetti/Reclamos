@@ -4,6 +4,7 @@ import {} from '../../../app.component';
 
 import { SolucionesService } from "../../../services/soluciones.service"
 import { ReclamosService } from "../../../services/reclamos.service";
+import { formatDate } from '@angular/common';
 
 @Component({
   selector: 'app-reclamos-form',
@@ -21,9 +22,11 @@ export class ReclamosFormComponent implements OnInit {
     Contacto: "",
     Metodo_Contacto: "",
     Tj: "",
+    Motivo: "",
     Problema: "",
     Observaciones: "",
     Id_u_r: "",
+    Llamar: 0,
     U_reclamo: "",
     Estado: "",
     N_solucion: "",
@@ -34,6 +37,20 @@ export class ReclamosFormComponent implements OnInit {
     U_solucion: ""
   };
 
+  reclamoNuevo:any={
+    Id : this.reclamo.N_reclamo,
+    Fecha : this.reclamo.F_reclamo,
+    Contacto : this.reclamo.Contacto,
+    Metodo_Contacto : this.reclamo.Metodo_Contacto,
+    Id_tjs : this.reclamo.Tj,
+    Motivo : this.reclamo.Motivo,
+    Problema : this.reclamo.Problema,
+    Observaciones : this.reclamo.Observaciones,
+    Id_Usuario : this.reclamo.Id_u_r,
+    Llamar : this.reclamo.Llamar,
+    Estado : this.reclamo.Estado,
+  };
+
   solucion:any={
     Id : 0,
     Id_reclamo : this.reclamo.N_reclamo,
@@ -41,7 +58,7 @@ export class ReclamosFormComponent implements OnInit {
     Solucion: "",
     Id_usuario: 0,
     Derivacion: ""
-  }
+  };
   
   editar : boolean = false;
   mostrar_derivacion: boolean = false;
@@ -80,10 +97,13 @@ export class ReclamosFormComponent implements OnInit {
          alert("Debe completar todos los campos requeridos");
     }
     else{
-      this.reclamoService.updateReclamo(this.reclamo.N_reclamo,this.reclamo).subscribe(
-        res => {console.log(res);
-                if (this.reclamo.Solucion!=''){
-                    this.solucion.Id  
+      this.reclamoNuevo.Fecha = formatDate(this.reclamoNuevo.Fecha, 'yyyy-MM-dd hh:mm:ss', 'en_US');
+      console.log 
+      /*
+      this.reclamoService.updateReclamo(this.reclamo.N_reclamo,this.reclamoNuevo).subscribe(
+        res => {console.log(res),/*;
+              if (this.reclamo.Solucion!=''){
+                    this.solucion.Id = this.reclamo.N_solucion 
                     this.solucion.Solucion 
                     this.solucion.Id_reclamo = this.reclamo.N_reclamo;
                     this.solucion.Fecha = this.reclamo.F_solucion;
@@ -97,7 +117,7 @@ export class ReclamosFormComponent implements OnInit {
                 };
                 this.router.navigate(['/reclamos'])},
         err => console.error(err)
-      )
+      )*/
     }
   }
 
